@@ -24,6 +24,7 @@ void setup() {
   pinMode(4, OUTPUT);
   pinMode(5, OUTPUT);
   pinMode(8,OUTPUT);
+  Serial.println(F("DIAL PROGRAM START:"));
   A6module.mBeggin();
   fsm_state = STATE_IDLE; //inciar el estado del la maquina de stado finito
   call_state = LINE_FREE;
@@ -32,10 +33,10 @@ void setup() {
  void loop() {
   switch(fsm_state){ //
   case STATE_IDLE: // hacer cuando el estado sea IDLE
-  /*if(millis() - lastUPDATEMillis > 60*UInterval) {
+  if(millis() - lastUPDATEMillis > 60*UInterval) {
     lastUPDATEMillis = millis(); //Actulizar la ultima hora de envio
     fsm_state = STATE_POWER_MODEM_ON;
-  }*/
+  }
   break;
   
   case STATE_POWER_MODEM_ON: //
